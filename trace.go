@@ -4,7 +4,7 @@ Copyright 2020 RS4
 @Date: 2020/06/28 20:53
 */
 
-package gokit_istio_trace_adapter
+package traceAdapter
 
 import (
 	"context"

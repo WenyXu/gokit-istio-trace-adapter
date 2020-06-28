@@ -15,7 +15,6 @@ import (
 	"strings"
 
 	"github.com/WenyXu/gokit_istio_trace_adapter"
-
 	"github.com/go-kit/kit/endpoint"
 	httptransport "github.com/go-kit/kit/transport/http"
 )

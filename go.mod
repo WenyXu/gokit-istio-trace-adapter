@@ -1,4 +1,4 @@
-module github.com/WenyXu/gokit_istio_trace_adapter
+module github.com/WenyXu/gokit-istio-trace-adapter
 
 go 1.13
 
