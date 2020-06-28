@@ -10,8 +10,8 @@ func main() {
 		makeUppercaseEndpoint(svc),
 		decodeUppercaseRequest,
 		encodeResponse,
-        //Add ServerBefore & ServerAfter func 
-        httptransport.ServerBefore(gokit_istio_trace_adapter.DefaultServerBefore),
+                //Add ServerBefore & ServerAfter func 
+                httptransport.ServerBefore(gokit_istio_trace_adapter.DefaultServerBefore),
 		httptransport.ServerAfter(gokit_istio_trace_adapter.DefaultServerAfter),
 	)
 
