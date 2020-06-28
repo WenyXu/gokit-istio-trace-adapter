@@ -2,6 +2,12 @@
 
 ```go
 // Transports expose the service to the network. In this first example we utilize JSON over HTTP.
+import (
+        ...
+	traceAdapter "github.com/WenyXu/gokit-istio-trace-adapter"
+)
+
+...
 
 func main() {
 	svc := stringService{}
@@ -11,8 +17,8 @@ func main() {
 		decodeUppercaseRequest,
 		encodeResponse,
                 //Add ServerBefore & ServerAfter func 
-                httptransport.ServerBefore(gokit_istio_trace_adapter.DefaultServerBefore),
-		httptransport.ServerAfter(gokit_istio_trace_adapter.DefaultServerAfter),
+                httptransport.ServerBefore(traceAdapter.DefaultServerBefore),
+		httptransport.ServerAfter(traceAdapter.DefaultServerAfter),
 	)
 
 	http.Handle("/uppercase", uppercaseHandler)

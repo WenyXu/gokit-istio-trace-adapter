@@ -14,7 +14,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/WenyXu/gokit_istio_trace_adapter"
+	traceAdapter "github.com/WenyXu/gokit-istio-trace-adapter"
 	"github.com/go-kit/kit/endpoint"
 	httptransport "github.com/go-kit/kit/transport/http"
 )
@@ -88,16 +88,16 @@ func main() {
 		makeUppercaseEndpoint(svc),
 		decodeUppercaseRequest,
 		encodeResponse,
-		httptransport.ServerBefore(gokit_istio_trace_adapter.DefaultServerBefore),
-		httptransport.ServerAfter(gokit_istio_trace_adapter.DefaultServerAfter),
+		httptransport.ServerBefore(traceAdapter.DefaultServerBefore),
+		httptransport.ServerAfter(traceAdapter.DefaultServerAfter),
 	)
 
 	countHandler := httptransport.NewServer(
 		makeCountEndpoint(svc),
 		decodeCountRequest,
 		encodeResponse,
-		httptransport.ServerBefore(gokit_istio_trace_adapter.DefaultServerBefore),
-		httptransport.ServerAfter(gokit_istio_trace_adapter.DefaultServerAfter),
+		httptransport.ServerBefore(traceAdapter.DefaultServerBefore),
+		httptransport.ServerAfter(traceAdapter.DefaultServerAfter),
 	)
 
 	http.Handle("/uppercase", uppercaseHandler)
