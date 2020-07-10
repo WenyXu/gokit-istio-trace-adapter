@@ -30,7 +30,7 @@ func DefaultServerAfter(ctx context.Context, w http2.ResponseWriter) context.Con
 	return ctx
 }
 
-func addDefualtHttpOptions(options map[string][]httptx.ServerOption, names []string) map[string][]httptx.ServerOption{
+func AddDefualtHttpOptions(options map[string][]httptx.ServerOption, names []string) map[string][]httptx.ServerOption{
 	op := addDefualtTraceHttpOptions(options,names,httptx.ServerBefore(DefaultServerBefore),httptx.ServerAfter(DefaultServerAfter))
 	return op
 }
