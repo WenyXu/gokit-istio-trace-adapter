@@ -8,8 +8,8 @@ package traceAdapter
 
 import (
 	"context"
-	http2 "net/http"
 	httptx "github.com/go-kit/kit/transport/http"
+	http2 "net/http"
 )
 
 var (
@@ -30,10 +30,11 @@ func DefaultServerAfter(ctx context.Context, w http2.ResponseWriter) context.Con
 	return ctx
 }
 
-func AddDefualtHttpOptions(options map[string][]httptx.ServerOption, names []string) map[string][]httptx.ServerOption{
-	op := addDefualtTraceHttpOptions(options,names,httptx.ServerBefore(DefaultServerBefore),httptx.ServerAfter(DefaultServerAfter))
+func AddDefualtHttpOptions(options map[string][]httptx.ServerOption, names []string) map[string][]httptx.ServerOption {
+	op := addDefualtTraceHttpOptions(options, names, httptx.ServerBefore(DefaultServerBefore), httptx.ServerAfter(DefaultServerAfter))
 	return op
 }
+
 func addDefualtTraceHttpOptions(options map[string][]httptx.ServerOption, names []string, beforFunc httptx.ServerOption, afterFunc httptx.ServerOption) map[string][]httptx.ServerOption {
 	for _, s := range names {
 		options[s] = append(options[s],
